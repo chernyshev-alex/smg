@@ -1,7 +1,6 @@
 package com.acme.smg.rest;
 
 import com.acme.smg.model.Article;
-import com.acme.smg.PersistenceStorage;
 import com.acme.smg.IPersistenceStorage;
 import com.google.inject.Inject;
 import javax.ws.rs.Consumes;
