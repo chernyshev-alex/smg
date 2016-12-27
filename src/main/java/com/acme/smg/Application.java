@@ -1,7 +1,6 @@
 
 package com.acme.smg;
  
-import com.acme.smg.model.IPersistenceStorage;
 import com.acme.smg.rest.TopicListResource;
 import com.google.inject.Guice;
 import com.google.inject.Injector;

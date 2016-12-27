@@ -2,6 +2,7 @@ package com.acme.smg.rest;
 
 import com.acme.smg.model.Article;
 import com.acme.smg.PersistenceStorage;
+import com.acme.smg.IPersistenceStorage;
 import com.google.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -19,7 +20,7 @@ import javax.ws.rs.core.MediaType;
  public  class ArticleResource {
 
      String topicId, articleId;
-     @Inject PersistenceStorage storage;
+     @Inject IPersistenceStorage storage;     
 
      @GET
      @Produces(MediaType.APPLICATION_JSON)

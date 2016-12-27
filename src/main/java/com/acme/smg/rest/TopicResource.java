@@ -1,6 +1,6 @@
 package com.acme.smg.rest;
 
-import com.acme.smg.PersistenceStorage;
+import com.acme.smg.IPersistenceStorage;
 import com.acme.smg.model.Topic;
 import com.google.inject.Inject;
 import javax.ws.rs.Consumes;
@@ -17,7 +17,7 @@ import javax.ws.rs.core.MediaType;
      */
 public class TopicResource {
 
-    @Inject PersistenceStorage storage;
+    @Inject IPersistenceStorage storage;
 
     private String id;
 

@@ -2,6 +2,7 @@ package com.acme.smg.rest;
 
 import com.acme.smg.model.Article;
 import com.acme.smg.PersistenceStorage;
+import com.acme.smg.IPersistenceStorage;
 import com.google.inject.Inject;
 import java.util.Set;
 import javax.ws.rs.GET;
@@ -16,8 +17,8 @@ import javax.ws.rs.core.MediaType;
 public class ArticleListResource {
 
     String topicId;
-    @Inject PersistenceStorage storage;
-
+    @Inject IPersistenceStorage storage;
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Set<Article> getJson() {

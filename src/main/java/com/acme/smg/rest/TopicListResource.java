@@ -1,6 +1,6 @@
 package com.acme.smg.rest;
 
-import com.acme.smg.model.IPersistenceStorage;
+import com.acme.smg.IPersistenceStorage;
 import com.acme.smg.PersistenceStorage;
 import com.acme.smg.model.Topic;
 import com.google.inject.Inject;

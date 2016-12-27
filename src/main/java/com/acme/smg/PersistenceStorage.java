@@ -1,6 +1,5 @@
 package com.acme.smg;
 
-import com.acme.smg.model.IPersistenceStorage;
 import com.acme.smg.model.Article;
 import com.acme.smg.model.Topic;
 import com.google.inject.Inject;
@@ -28,18 +27,22 @@ public class PersistenceStorage implements IPersistenceStorage {
         return topics;
     }
 
+    @Override
     public void addTopic(Topic topic) {
         topics.put(topic.getId(), topic);
     }
 
+    @Override
     public Topic getTopic(String id) {
         return topics.get(id);
     }
 
+    @Override
     public void deleteTopic(String topicId) {
         topics.remove(topicId);
     }
 
+    @Override
     public void addArticle(String topicId, Article article) {
         Topic topic = topics.get(topicId);
         if (topic != null) {
@@ -47,6 +50,7 @@ public class PersistenceStorage implements IPersistenceStorage {
         }
     }
 
+    @Override
     public Article getArticle(String topicId, String articleId) throws NotFoundException {
         Topic topic = topics.get(topicId);
         if (topic == null) {
@@ -63,20 +67,11 @@ public class PersistenceStorage implements IPersistenceStorage {
         throw new NotFoundException("article " + articleId);
     }
 
+    @Override
     public void deleteArticle(String topicId, String articleId) {
         Topic topic = topics.get(topicId);
         if (topic != null) {
             topic.getArticles().remove(new Article(articleId));
-        }
-    }
-
-    public static void buildExamples(int cnt) {
-        for (int i = 1000; i < 1000 + cnt; i++) {
-            String topicKey = Integer.toHexString(i);
-            Topic topic = Topic.createWith(topicKey, "title " + topicKey);
-            topic.getArticles().add(new Article("1"));
-            topic.getArticles().add(new Article("2"));
-            topics.put(topic.getId(), topic);
         }
     }
 
